@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkinPro — Name and Tagline: A Strategic Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:       #020989;
+      --blue-dark:  #002b5b;
+      --white:      #ffffff;
+      --cream:      #f8f5f2;
+      --gray-dark:  #3d3d3d;
+      --gray-mid:   #6b6b6b;
+      --gray-light: #a3a3a3;
+      --border:     #e2e2e2;
+      --font:       'Manrope', system-ui, sans-serif;
+    }
+
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font);
+      color: var(--gray-dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: var(--blue-dark);
+      color: var(--white);
+      padding: 52px 56px 44px;
+    }
+    .header__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 14px;
+    }
+    .header__title {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .header__sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-weight: 400;
+      margin-bottom: 36px;
+    }
+    .header__meta {
+      display: flex;
+      gap: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+    }
+    .meta__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 5px;
+    }
+    .meta__value {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .body {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 40px 96px;
+    }
+
+    .section {
+      border-top: 1.5px solid var(--border);
+      padding: 40px 0;
+    }
+    .section:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+    .section__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .section__title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--blue-dark);
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+    .section__body {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--gray-dark);
+    }
+    .section__body p + p {
+      margin-top: 14px;
+    }
+
+    .callout {
+      background: var(--cream);
+      border-left: 3px solid var(--blue);
+      padding: 20px 24px;
+      margin: 24px 0;
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--gray-dark);
+    }
+    .callout strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin-bottom: 6px;
+    }
+
+    .option {
+      margin-top: 32px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .option__header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .option--a .option__header { background: #f0f2ff; }
+    .option--b .option__header { background: #f0f5f0; }
+    .option__title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      letter-spacing: -0.01em;
+    }
+    .option__tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+    .option--a .option__tag { background: rgba(2,9,137,0.1); color: var(--blue); }
+    .option--b .option__tag { background: rgba(43,107,72,0.12); color: #2b6b48; }
+    .option__body {
+      padding: 24px;
+    }
+    .option__body p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-dark);
+    }
+    .option__body p + p {
+      margin-top: 12px;
+    }
+    .option__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .option__col-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .option__col--for .option__col-label { color: #2b6b48; }
+    .option__col--against .option__col-label { color: #a05000; }
+    .option__col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .option__col ul li {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--gray-dark);
+      padding-left: 14px;
+      position: relative;
+    }
+    .option__col ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      font-size: 11px;
+      color: var(--gray-light);
+    }
+
+    .tagline-block {
+      background: var(--blue-dark);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin: 28px 0;
+    }
+    .tagline-block__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+    }
+    .tagline-block__line {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .tagline-block__note {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .decision-box {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+    .decision-box__label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    .decision-box__question {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--blue-dark);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+    .decision-box__body {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-mid);
+    }
+
+    .footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--gray-light);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header__label">Strategic Review — Internal</div>
+    <div class="header__title">Brand Name and Tagline</div>
+    <div class="header__sub">A question that needs a decision before the brand rebuild goes further</div>
+    <div class="header__meta">
+      <div>
+        <div class="meta__label">Prepared by</div>
+        <div class="meta__value">Strategy Team</div>
+      </div>
+      <div>
+        <div class="meta__label">Date</div>
+        <div class="meta__value">April 2026</div>
+      </div>
+      <div>
+        <div class="meta__label">Status</div>
+        <div class="meta__value">For founder decision</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- 01 Why we're raising this now -->
+    <div class="section">
+      <div class="section__label">Context</div>
+      <div class="section__title">Why this question comes up now</div>
+      <div class="section__body">
+        <p>The brand rebuild is underway. The concept direction is confirmed. The brand audit is complete. Before the visual identity is finalised and the website copy is written, there is one question that needs an answer first, because the answer changes what every subsequent piece of work says.</p>
+        <p>The question is whether the name "SkinPro" serves the positioning the agency has confirmed for itself, or whether it creates a ceiling that the strategy will eventually have to work around.</p>
+        <p>This is not a question the strategy team can resolve on its own. It requires a decision from the founder about the intended scope of the business in the next two to three years. That decision determines which path is correct. Both paths are workable. They are not both equally suited to the same future.</p>
+      </div>
+    </div>
+
+    <!-- 02 What the name communicates -->
+    <div class="section">
+      <div class="section__label">The Honest Assessment</div>
+      <div class="section__title">What "SkinPro" communicates, and what it doesn't</div>
+      <div class="section__body">
+        <p>The confirmed concept for SkinPro is: "Medical precision. Business performance." The agency that starts with a diagnosis. A consulting-led firm that brings strategic rigour to clinic growth. This is what the positioning says.</p>
+        <p>The name says something different. "Skin" points to a consumer category. "Pro" is a generic suffix that appears on software products, tools, and service tiers. Together they read as a consumer skin-care brand or a digital tool, not as a B2B medical strategy agency. A prospective clinic owner, a device manufacturer, or a scientific society visiting for the first time has no signal from the name alone about what SkinPro actually is.</p>
+        <p>The brand strategy confirmed in March correctly noted that the name is a container and the work fills it. That is true over time, once the agency has a body of work and a reputation. At launch, before that body of work exists, the name is all a new contact has. It either supports the positioning in that first moment or it requires explanation to overcome.</p>
+
+        <div class="callout">
+          <strong>The gap</strong>
+          The confirmed hero line is "Medical precision. Business performance." The name carries no word of that. The two things do not reinforce each other. A new contact encounters the name before they encounter the positioning, and the name does not prepare them for what follows.
+        </div>
+
+        <p>This is not a fatal problem. Agencies with generic or even unrelated names build strong positioning over time. It is, however, a friction point that will be felt consistently in new business conversations at the early stage of the agency's growth, when the name has to do more work because the reputation is not yet there to do it.</p>
+      </div>
+    </div>
+
+    <!-- 03 The scope ceiling -->
+    <div class="section">
+      <div class="section__label">The Bigger Issue</div>
+      <div class="section__title">The scope ceiling</div>
+      <div class="section__body">
+        <p>The name question is not only about register. It is about scope.</p>
+        <p>SkinPro's current active client portfolio already extends beyond skin and aesthetic medicine. Gonidis is a dental practice. Rejuran is a pharmaceutical device manufacturer. HSDS is a scientific society for dermatosurgery. The strategic blueprint confirms that device manufacturers and distributors are a target track for expansion, and that pan-European positioning is a Phase 6 ambition. None of these fit cleanly inside "Skin."</p>
+        <p>A dental client does not want their marketing agency to have "skin" in the name. A device manufacturer operating across multiple therapeutic categories faces the same friction. A pan-European positioning effort built around a name that reads as skin-specific will require constant explanation in new markets where the name lands without context.</p>
+        <p>The name works for the core medical aesthetics client: aesthetic clinics, dermatologists, plastic surgeons, injectables brands. The moment the portfolio expands beyond that core, the name begins working against the business rather than for it. The question is whether that expansion is real and intended, or whether the core market is the ceiling by design.</p>
+      </div>
+    </div>
+
+    <!-- 04 Options -->
+    <div class="section">
+      <div class="section__label">The Options</div>
+      <div class="section__title">Two paths forward</div>
+      <div class="section__body">
+        <p>There are two credible positions. A third option exists but is not recommended at this stage of the agency's development.</p>
+      </div>
+
+      <!-- Option A -->
+      <div class="option option--a">
+        <div class="option__header">
+          <div class="option__title">Option A. Keep SkinPro. Add "The practice of growing practices."</div>
+          <div class="option__tag">Continuity path</div>
+        </div>
+        <div class="option__body">
+          <p>The name stays. The agency adds a permanent tagline below the wordmark that immediately shifts the register: "The practice of growing practices." This line was developed during the concept work and is the strongest candidate from the entire body of copy produced to date. "Practice" as method. "Practices" as clinics. Both meanings are immediate. Neither requires explanation.</p>
+          <p>Under this option, the name ceiling is accepted rather than resolved. The agency commits to the medical aesthetics vertical as its primary and dominant market. Dental and device work is taken on selectively, framed internally as adjacent rather than core. Pan-European expansion, if pursued, requires the market to learn what "SkinPro" means before the name supports the positioning rather than complicating it.</p>
+
+          <div class="option__row">
+            <div class="option__col option__col--for">
+              <div class="option__col-label">For</div>
+              <ul>
+                <li>No disruption to existing client relationships</li>
+                <li>Name is already present in all materials, proposals, and client communications</li>
+                <li>Tagline adds register without requiring a full naming exercise</li>
+                <li>Correct if the agency intends to stay within medical aesthetics as its dominant vertical</li>
+                <li>Keeps the brand rebuild on its current timeline</li>
+              </ul>
+            </div>
+            <div class="option__col option__col--against">
+              <div class="option__col-label">Against</div>
+              <ul>
+                <li>Name ceiling remains: dental, devices, societies, pan-European expansion all carry friction</li>
+                <li>Register gap between name and concept is patched, not resolved</li>
+                <li>A tagline adds meaning only for those who read it. In abbreviated contexts (email signatures, verbal introductions, referrals), the name stands alone</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option B -->
+      <div class="option option--b">
+        <div class="option__header">
+          <div class="option__title">Option B. Rename now, before the brand rebuild is complete</div>
+          <div class="option__tag">Clean break path</div>
+        </div>
+        <div class="option__body">
+          <p>The agency takes the naming decision before the visual identity is finalised, the website is written, and the new brand system goes into production. This is the last low-cost window. The website has not launched under the new positioning. No significant media or marketing investment has been made in the current name. Existing clients are B2B and a name change can be communicated directly and specifically, not broadcast passively.</p>
+          <p>Under this option, the new name is built around the confirmed concept: precision, method, growth, or the insider origin. It does not describe a category. It does not carry a sector suffix. It functions as a container with enough register to hold "Medical precision. Business performance." without friction.</p>
+          <p>"The practice of growing practices." remains the tagline regardless of what the new name is. That line is strong enough to be independent of the name it sits below.</p>
+          <p>A naming brief and a shortlist of directions would follow this decision as the immediate next step. The brand rebuild does not stop; the visual identity and website copy work can proceed in parallel with the naming process. The constraint is that no name appears on any public material until the new name is confirmed.</p>
+
+          <div class="option__row">
+            <div class="option__col option__col--for">
+              <div class="option__col-label">For</div>
+              <ul>
+                <li>Removes the name ceiling entirely before the agency invests further in the current name</li>
+                <li>Allows the name and concept to reinforce each other from launch</li>
+                <li>This window does not reopen once the website is built and client materials are produced at scale</li>
+                <li>The right choice if expansion beyond medical aesthetics is real and intended within 18 months</li>
+                <li>"The practice of growing practices." survives a rename and becomes stronger</li>
+              </ul>
+            </div>
+            <div class="option__col option__col--against">
+              <div class="option__col-label">Against</div>
+            <ul>
+                <li>Adds a naming process to the Phase 1 timeline: typically 2 to 4 weeks if done with focus</li>
+                <li>Requires direct communication to all existing clients, which is manageable but not frictionless</li>
+                <li>Some existing brand equity in "SkinPro" is lost, though at this stage that equity is limited</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 05 The tagline regardless -->
+    <div class="section">
+      <div class="section__label">On the Tagline</div>
+      <div class="section__title">The tagline that applies to either path</div>
+      <div class="section__body">
+        <p>Regardless of the name decision, one line from the concept work is strong enough to function as the permanent tagline below the wordmark. It was produced during the concept development phase and was described at the time as the line that stays after the page is closed.</p>
+      </div>
+
+      <div class="tagline-block">
+        <div class="tagline-block__label">Proposed tagline</div>
+        <div class="tagline-block__line">The practice of growing practices.</div>
+        <div class="tagline-block__note">"Practice" as method. "Practices" as clinics. Both meanings are immediate and neither requires explanation. The double meaning is precise rather than clever: it says what the agency does, how it does it, and who it does it for in seven words. The consulting register is present. The sector is named without being named. It works below a wordmark, on a proposals cover, in a document footer, and in a verbal introduction.</div>
+      </div>
+
+      <div class="section__body">
+        <p>This line was not written for Option A and discarded for Option B. It is independent of the naming decision. It should be adopted now and remain stable through whatever follows.</p>
+      </div>
+    </div>
+
+    <!-- 06 Our position -->
+    <div class="section">
+      <div class="section__label">Our Position</div>
+      <div class="section__title">What we recommend, and why</div>
+      <div class="section__body">
+        <p>If the agency intends to stay within medical aesthetics as its primary and dominant vertical for the next two to three years, Option A is correct. The name ceiling is a manageable constraint, the tagline adds the register the name doesn't carry, and the rebuild proceeds on its current timeline without interruption.</p>
+        <p>If the agency intends to grow the device manufacturer track, expand to dental or adjacent medical fields, or build pan-European visibility within 18 months, Option B is the right decision and this is the moment to take it. Not after the website is built. Not after new business cards and client materials are produced. Now, while the rebuild is in progress and the cost of change is still low.</p>
+        <p>We do not recommend a middle path. A partial rename, a sub-brand structure, or a holding company layer adds complexity that an agency at this stage does not need and cannot maintain. The choice is one of the two options above.</p>
+        <p>The decision is yours. What we can say is that the question will not get easier to answer later, and the cost of answering it will not get lower. The work to make either path succeed is already underway.</p>
+      </div>
+    </div>
+
+    <!-- 07 The decision -->
+    <div class="section">
+      <div class="section__label">Decision Required</div>
+      <div class="section__title">What we need from you</div>
+
+      <div class="decision-box">
+        <div class="decision-box__label">The question</div>
+        <div class="decision-box__question">In the next 18 to 24 months, is SkinPro a medical aesthetics agency that takes selective adjacent work, or is it a medical sector agency that serves aesthetics, dental, devices, and professional societies as equal verticals?</div>
+        <div class="decision-box__body">The answer to that question determines the name decision. Option A is correct for the first. Option B is correct for the second. The tagline "The practice of growing practices." is adopted regardless of which path is chosen.</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>SkinPro — Brand Name and Tagline Review · April 2026</span>
+      <span>Internal — For founder</span>
+    </div>
+
+  </div>
+
+</body>
+</html>
